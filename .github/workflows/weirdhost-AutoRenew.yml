@@ -65,12 +65,7 @@ jobs:
           fi
         working-directory: ${{ github.repository_owner }}-${{ github.event.repository.name }}-${{ env.PROJECT_DIR }}
 
-      # 步骤 5.5: 安装 Playwright 浏览器
-      - name: 🌐 安装 Playwright 浏览器
-        run: playwright install chromium
-        working-directory: ${{ github.repository_owner }}-${{ github.event.repository.name }}-${{ env.PROJECT_DIR }}
-
-      # 步骤 5.6: 安装 SeleniumBase 驱动
+      # 步骤 5.5: 安装 SeleniumBase 驱动
       - name: 🤖 安装 SeleniumBase 驱动
         run: sbase install chromedriver
         working-directory: ${{ github.repository_owner }}-${{ github.event.repository.name }}-${{ env.PROJECT_DIR }}
