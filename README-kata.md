@@ -1,4 +1,4 @@
-# auto_kataBump  登录续期
+# auto_login_katabump 续期 建议每天运行一次
 
 
 你需要做以下修改：
@@ -8,11 +8,11 @@
 
 - PRIVATE_REPO_TOKEN （用于读取私库的 token，可跟其他库共用）
 
-- KATABUMP_ACCOUNTS_BATCH（kata的账号环境变量）
+- KATABUMP_BATCH （katabump 的账号环境变量）
+
 ```
-KATABUMP_ACCOUNTS_BATCH='a1@example.com,pass1,218445,123456:AAxxxxxx,123456789
-a2@example.com,pass2,998877,123456:AAyyyyyy,-10022223333
-a3@example.com,pass3,556677'
+KATABUMP_BATCH='a1@example.com,pass1,218445
+a2@example.com,pass2,998877,123456:AAxxxxxx,123456789'
 ```
 ### 这上面的单引号你自己不要加上去哈
 
@@ -26,7 +26,20 @@ a3@example.com,pass3,556677'
 
 2、发 TG：email,password,server_id,tg_bot_token,tg_chat_id
 
-注意:server_id为续期界面中的url里面的id编号，每个人的id都会不一样
+- HY2_PROXY_URL （可选，Hysteria2 代理 URL）
+
+```
+HY2_PROXY_URL='hysteria2://[auth]@[host]:[port]/?sni=xxx&insecure=1&alpn=h3'
+```
+### 如果不设置此环境变量，脚本将使用直连模式
+
+- SOCKS_PORT （可选，SOCKS5 端口，默认 51080）
+
+```
+SOCKS_PORT='51080'
+```
+### 仅在设置了 HY2_PROXY_URL 时生效
+
 
 
 
@@ -44,7 +57,7 @@ env:
 
 ```
 
-这个 secrets.GITHUB_TOKEN 是 GitHub 自动注入的，不会出现在 “Secrets” 列表里让你手动建。
+这个 secrets.GITHUB_TOKEN 是 GitHub 自动注入的，不会出现在 "Secrets" 列表里让你手动建。
 
 
 2) 你需要设置的地方：给它写权限
@@ -57,9 +70,5 @@ env:
 
 ✅ Read and write permissions
 
-
-
 ## 3、修改定时任务执行时间。
-### kata-AutoRenew.yml里面修改你的定时任务的执行时间（建议每天执行一次，你需要修改的是他的小时和分钟，一定要每天执行，因为代码里面是每天检查是否到了续期日，只有到续期日的前一天才会进行续期操作。）
-
-
+### 去kata-AutoRenew.yml里面修改你的定时任务的执行时间（建议每天运行一次）
