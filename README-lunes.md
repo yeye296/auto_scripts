@@ -26,6 +26,7 @@ a2@gmail.com,pass2,123456:AAxxxxxx,123456789'
 
 2、发 TG：email,password,tg_bot_token,tg_chat_id
 
+
 -1.3、 HY2_PROXY_URL （可选，Hysteria2 代理 URL）
 
 ```
