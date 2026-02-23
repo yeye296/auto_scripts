@@ -6,9 +6,9 @@
 
 ## 1、设置环境变量，环境变量格式如下：
 
-- PRIVATE_REPO_TOKEN （用于读取私库的 token，可跟其他库共用）
+-1.1、 PRIVATE_REPO_TOKEN （用于读取私库的 token，可跟其他库共用）如果本仓库里其他
 
-- LUNES_ACCOUNTS_BATCH （lunes的账号环境变量）
+-1.2、 LUNES_ACCOUNTS_BATCH （lunes的账号环境变量）
 
 ```
 LUNES_ACCOUNTS_BATCH='a1@gmail.com,pass1
@@ -25,6 +25,20 @@ a2@gmail.com,pass2,123456:AAxxxxxx,123456789'
 1、不发 TG：email,password
 
 2、发 TG：email,password,tg_bot_token,tg_chat_id
+
+-1.3、 HY2_PROXY_URL （可选，Hysteria2 代理 URL）
+
+```
+HY2_PROXY_URL=hysteria2://[uuid]@[host]:[port]?sni=xxx&insecure=1&alpn=h3
+```
+### 如果不设置此环境变量，脚本将使用直连模式
+
+-1.4、SOCKS_PORT （可选，SOCKS5 端口，默认 51080）
+
+```
+SOCKS_PORT='51080'
+```
+### 仅在设置了 HY2_PROXY_URL 时生效
 
 
 
